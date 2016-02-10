@@ -1,5 +1,5 @@
 # call-handler
-CXF JAX-RS service with Bean Validation and Spring.
+CXF JAX-RS service with Bean Validation and Spring + Java 8.
 
 The application consists of a single service ***http://localhost:port/services/callService/addCall*** which accepts a JSON object Call:
 ```json  
