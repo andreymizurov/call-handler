@@ -22,13 +22,16 @@ public class CallServiceImpl implements CallService {
     @Override
     public Response addCall(CallVO call) {
         CommonResponseVO responseVO = CommonResponseVO.ok();
+        Response response;
         try {
             callRepository.save(call);
             responseVO.addMessage("Call added successfully");
+            response = Response.ok().entity(responseVO).build();
         } catch (CallSaveException e) {
             responseVO.setStatus(CommonResponseVO.Status.ERR);
             responseVO.addMessage("Can't save information about Call, please try again.");
+            response = Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(responseVO).build();
         }
-        return Response.ok(responseVO).build();
+        return response;
     }
 }
