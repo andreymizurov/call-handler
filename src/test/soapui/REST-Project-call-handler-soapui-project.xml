@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="415bab70-95c7-4eb9-9eea-b8ae3517dfdd" activeEnvironment="Default"
+                    name="REST Project call-handler" resourceRoot="" soapui-version="5.2.1" abortOnError="false"
+                    runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local">
+            <![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="AddCallSuite"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="AddCallCase"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+    </con:settings>
+    <con:interface xsi:type="con:RestService" id="49500152-e3f2-4738-b703-ac657d62a053"
+                   wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+        </con:endpoints>
+        <con:resource name="AddCall" path="/services/callService/addCall" id="7e9bd749-9586-466d-bc91-6eabc90e6083">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="AddCall" id="723bf92d-11db-4d62-8dbd-308691136d89" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:add="http://localhost/ch/services/callService/addCall">add:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:add="http://localhost/ch/services/callService/addCall">add:Fault</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>text/html;charset=utf-8</con:mediaType>
+                    <con:status>404</con:status>
+                    <con:params/>
+                    <con:element>html</con:element>
+                </con:representation>
+                <con:request name="addCallRequest" id="46a2f27c-2aa2-4ad0-b6fe-651485aa2017"
+                             mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="633206d4-a38f-4a75-a8e6-084a9381471a" name="AddCallSuite">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="1b749b7e-0a7e-40b5-8c49-15b3211fd81b" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="AddCallCase" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="ValidRequest" id="14815099-966f-4286-90ab-d463023c98ff">
+                <con:settings/>
+                <con:config service="http://localhost:8080" methodName="AddCall"
+                            resourcePath="/services/callService/addCall" xsi:type="con:RestRequestStep"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="ValidRequest" id="f0601664-2969-462a-bf0b-86b4253031c8"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "firstName":"Ivan",
+                            "lastName":"Ivanov",
+                            "telephoneNumber":"+(420)-123456789"
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/ch/services/callService/addCall</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="57a15e0f-7178-4cf6-a3af-eb3238ed5daf"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="InvalidRequestNotCorrectInputData"
+                          id="7bfc377b-1215-4069-b0f7-21fe2379c7e2">
+                <con:settings/>
+                <con:config service="http://localhost:8080" methodName="AddCall"
+                            resourcePath="/services/callService/addCall" xsi:type="con:RestRequestStep"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="InvalidRequestNotCorrectInputData" id="ad6a9a50-d369-48d0-8cee-cf414435de00"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "firstName":"IvanIvanIvanIvanIvanIvanIvanIvanIvanIvanIvanIvanIvanIvan",
+                            "telephoneNumber":"+(420)-1234567890"
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/ch/services/callService/addCall</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="729cc636-7a4a-4e35-b05b-5f9bef8f5328"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>400</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="ValidRequestWithoutFirstName"
+                          id="55e91127-3f92-4a09-a355-5d9c2e3ea978">
+                <con:settings/>
+                <con:config service="http://localhost:8080" methodName="AddCall"
+                            resourcePath="/services/callService/addCall" xsi:type="con:RestRequestStep"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="ValidRequestWithoutFirstName" id="2a1d004c-a714-470e-a235-f126b7217c57"
+                                     mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "lastName":"Ivanov",
+                            "telephoneNumber":"+(420)-123456789"
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/ch/services/callService/addCall</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="cfee37e0-a541-4fd1-800e-a07b41abd111"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="InvalidRequestWithoutTelephoneNumber"
+                          id="9507708a-f27b-46e3-bb06-fdaeefaaf23d">
+                <con:settings/>
+                <con:config service="http://localhost:8080" methodName="AddCall"
+                            resourcePath="/services/callService/addCall" xsi:type="con:RestRequestStep"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="InvalidRequestWitoutTelephoneNumber"
+                                     id="44dea7f1-13cf-4c71-8647-ca994e278e7a" mediaType="application/json"
+                                     postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "firstName":"Ivan",
+                            "lastName":"Ivanov"
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/ch/services/callService/addCall</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="048613a9-fa69-45ca-ba16-8a7456527618"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>400</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+</con:soapui-project>
